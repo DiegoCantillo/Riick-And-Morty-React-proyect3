@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios';
-import Character from '../component/Character';
+import Character from './components/Character';
 import rickandmortygif from './assets/rick-and-morty.gif'
 
 function App() {
