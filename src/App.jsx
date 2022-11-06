@@ -79,7 +79,7 @@ function App() {
             </div>
           ) : (
             <div className='footer' style={{position:"absolute"}}>
-              <h2>Derechos reservados © Diego Cantilloo & Jhorman Niet</h2>
+              <h2>Derechos reservados © Diego Cantillo & Jhorman Niet</h2>
             </div>
           )
         }
