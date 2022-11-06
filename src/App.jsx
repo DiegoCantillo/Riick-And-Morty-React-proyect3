@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios';
 import Character from '../component/Character';
+import rickandmortygif from './assets/rick-and-morty.gif'
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
     <div className="App">
       <h1 className='title'>Rick And Morty</h1>
       <div className='header'>
-       <img className='header-img' src="/src/assets/rick-and-morty.gif" alt="rick and morty" /> 
+       <img className='header-img' src={rickandmortygif} alt="rick and morty" /> 
       </div>
       <div className='searched'>
         <div className='search'>
