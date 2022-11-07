@@ -75,11 +75,11 @@ function App() {
         {
           locationRickAndMorty.residents?.length >= 1 ? (
             <div className='footer' style={{position:"relative"}}>
-          <h2>Derechos reservados © Diego Cantillo & Jhorman Nieto  </h2>
+          <h2>Made With ❤️ By Diego Cantillo & Jhorman Nieto</h2>
             </div>
           ) : (
             <div className='footer' style={{position:"absolute"}}>
-              <h2>Derechos reservados © Diego Cantillo & Jhorman Niet</h2>
+              <h2>Made With ❤️ By Diego Cantillo & Jhorman Nieto</h2>
             </div>
           )
         }

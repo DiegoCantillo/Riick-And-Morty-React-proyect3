@@ -292,6 +292,8 @@ b{
   align-items: center;
   padding: 5px;
   bottom: 0;
+  margin-top: 45px;
+  font-size: 10px;
 }
 
 .footer h2{
