@@ -8,9 +8,24 @@ function App() {
 
   const [locationRickAndMorty, setLocationRickAndMorty] = useState({});
   const [typeId, setTypeId] = useState("");
+  const [suggestions, setSuggestions] = useState([])
   const [isLoading, setIsLoading] = useState(true);
 
   const randomId = Math.floor(Math.random() * 126) +1;
+
+
+  useEffect(()=> {
+    if(typeId){
+      axios.get(`https://rickandmortyapi.com/api/location?name=${typeId}`)
+          .then(res => setSuggestions(res.data.results))
+          .catch(error => console.log(error.response.data))
+    }else{
+      setSuggestions([])
+    }
+  },[typeId])
+
+const suggestionSlice = suggestions.slice(0, 5)
+
   useEffect(() =>{
     axios.get(`https://rickandmortyapi.com/api/location/${randomId}`)
     .then((res) => {
@@ -26,6 +41,18 @@ function App() {
       setLocationRickAndMorty(res.data);
     });
   }
+const [page, setPage] = useState(1);
+const rickPerPage = 8;
+const lastIndex = page * rickPerPage;
+const firstIndex = lastIndex - rickPerPage;
+const rickPaginator =  locationRickAndMorty.residents?.slice(firstIndex, lastIndex)
+const totalPage = Math.ceil(locationRickAndMorty.residents?.length / rickPerPage)
+
+
+let numbers = []
+for(let i= 1; i<= totalPage; i++){
+   numbers.push(i)
+}
 
   return (
     <>
@@ -52,6 +79,11 @@ function App() {
           <button onClick={searchLocation} className='btn' style={{background:"#165e19", color:"white"}}>Search</button> 
           }
         </div>
+        {
+          suggestionSlice.map(suggestion => (
+            <li key={suggestion.id} onClick={() => setLocationRickAndMorty(suggestion)}> <p>{suggestion.name}</p> </li>
+          ))
+        }
         <div className='location'>
           <h2>{locationRickAndMorty.dimension}</h2>
           <div className='location-info'>
@@ -61,16 +93,24 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='main'>
+      <div className='main' key={location} >
         <div className='cards-content'>
+
           {
-            locationRickAndMorty.residents?.map(location => (
+            rickPaginator.map(location => (
               <Character
               key={location} 
               location={location}
               />
             )) 
           }
+        </div>
+        <div className="btn-paginators">
+              <button className="btn-next-and-prev" onClick={()=> setPage(page-1)} disabled={page == 1}> prev</button>
+              {numbers.map(number => (
+                <button onClick={()=> setPage(number)}>{number}</button>
+              ))}
+              <button className="btn-next-and-prev" onClick={()=> setPage(page+1)} disabled={page == totalPage}>Next</button>
         </div>
         {
           locationRickAndMorty.residents?.length >= 1 ? (

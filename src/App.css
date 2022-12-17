@@ -38,12 +38,29 @@ body{
   }
 }
 
-.search{
-  margin-top: -100px;
+
+.searched li{
+  width: 65%;
+  margin: auto;
+  margin: auto;
+  list-style: none;
+  color: white;
+  padding: 3px;
+  text-align: left;
+}
+
+.searched li p{
+  margin: 4px;
+  border-radius: 3px;
+  padding-left: 9px;
+}
+
+.searched li p:hover{
+  box-shadow: 0px 1px 24px 3px rgba(66,229,1,1);
 }
 
 input{
-  width: 50%;
+  width: 65%;
   height: 30px;
   outline: none;
   border: none;
@@ -282,10 +299,52 @@ b{
   align-items: center;
 }
 
+.btn-paginators{
+  margin: 15px;
+}
+
+
+.btn-paginators button{
+  text-align: center;
+  min-width: 33px;
+  max-width: 33px;
+  height: 33px;
+  margin: 7px;
+  font-weight: 700;
+  background-color: #031618;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+}
+@media(max-width: 417px){
+  .btn-paginators button{
+    font-size: 12px;
+    text-align: center;
+    min-width: 28px;
+    max-width: 28px;
+    height: 28px;
+    margin: 3px;
+    font-weight: 700;
+  }
+}
+
+.btn-paginators .btn-next-and-prev{
+  min-width: 70px;
+  max-width: 70px;
+}
+
+@media(max-width: 417px){
+  .btn-paginators .btn-next-and-prev{
+    min-width: 55px;
+    max-width: 55px;
+  }
+}
+
 .footer{
   width: 100%;
   height: fit-content;
-  background-color: greenyellow;
+  background-color: #031618;
+  color: white;
   text-align: center;
   display: flex;
   justify-content: center;
