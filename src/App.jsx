@@ -39,6 +39,7 @@ function App() {
       .then((res) => {
         setIsLoading(false);
         setLocationRickAndMorty(res.data);
+        setTypeId('')
       });
   };
   const [page, setPage] = useState(1);
@@ -105,7 +106,7 @@ function App() {
                 {suggestionSlice.map((suggestion) => (
                   <li
                     key={suggestion.id}
-                    onClick={() => setLocationRickAndMorty(suggestion)}
+                    onClick={() => {setLocationRickAndMorty(suggestion); setTypeId('')} }
                   >
                     {" "}
                     <p>{suggestion.name}</p>{" "}

@@ -212,7 +212,7 @@ body{
 }
 
 .card{
-  width: 250px;
+  width: 260px;
   height: 370px;
   padding: 0cm;
   background: linear-gradient(to right, rgba(215, 209, 209, 1), rgba(215, 209, 209, 0.5));
@@ -224,6 +224,12 @@ body{
   -o-border-radius: 5px;
   margin-top: 18px;
   position: relative;
+}
+
+@media(max-width: 455px){
+  .card{
+    width: 280px;
+  }
 }
 
 .card .info{
@@ -273,7 +279,7 @@ body{
   right: 0px;
   background-color: #121617;
   font-size: 14px !important;
-  border-radius: 0 0 0 4px;
+  border-radius: 0 4px 0 4px;
   border-bottom:1px solid rgb(215, 209, 209);
   border-left: 1px solid rgb(215, 209, 209);
 }
